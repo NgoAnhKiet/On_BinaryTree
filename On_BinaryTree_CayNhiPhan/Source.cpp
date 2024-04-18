@@ -11,7 +11,7 @@ typedef Node* NodePtr;
 #pragma region Chèn nút
 NodePtr makeNode(int value)
 {
-	NodePtr newNode = new Node;
+	NodePtr newNode = new Node();
 	if (newNode == NULL) return NULL;
 	newNode->info = value;
 	newNode->left = NULL;
@@ -140,7 +140,7 @@ int totalLeafNode(NodePtr root)
 {
 	if (root == NULL) return 0; 
 	if (root->left == NULL && root->right == NULL) //Có thể ghi là (!root->left && !root->right)
-		return 1 /*+ totalLeafNode(root->left) + totalLeafNode(root->right)*/;
+		return 1 + totalLeafNode(root->left) + totalLeafNode(root->right);
 	return totalLeafNode(root->left) + totalLeafNode(root->right);
 }
 #pragma endregion
